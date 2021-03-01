@@ -12,11 +12,10 @@ namespace CsharpOwnProject
       lab.AddBook(new Book("Against The Gods", 5));
       lab.AddBook(new Book("Magic Emperor", 1));
       lab.AddBook(new Book("Emperor's Domination", 5));
-      lab.ShowBooks();
-      lab.SortedByRating();
-      lab.SortedByName();
+
       lab.SelectBook("Magic Emperor");
       lab.ShowAllBooksWithThisRating(5);
+      Console.WriteLine(lab.ToString());
     }
   }
 }

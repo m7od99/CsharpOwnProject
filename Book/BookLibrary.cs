@@ -8,56 +8,25 @@ namespace CsharpOwnProject
   {
     public BookLibrary()
     {
-      _book = new List<Book>();
+      _books = new List<Book>();
     }
-    private List<Book> _book { get; set; }
-    private int Index { get; set; } = 0;
+    private List<Book> _books { get; set; }
 
     public void AddBook(Book book)
     {
-      _book.Add(book);
-      Index++;
+      _books.Add(book);
     }
     public void RemoveBook(Book book)
     {
-      _book.Remove(book);
+      _books.Remove(book);
     }
     public void Clear()
     {
-      _book.Clear();
+      _books.Clear();
     }
-    public void SortedByRating()
-    {
-      _book.Sort(delegate (Book a, Book b) { return a.Rating.CompareTo(b.Rating); });
-      _book.Reverse();
-
-      ShowBooks();
-    }
-    public void SortedByName()
-    {
-      _book.Sort(delegate (Book a, Book b) { return a.Name.CompareTo(b.Name); });
-
-      ShowBooks();
-    }
-    public void SortedByDate()
-    {
-      _book.Sort(delegate (Book a, Book b) { return a.Date.CompareTo(b.Date); });
-
-      ShowBooks();
-    }
-    public void ShowBooks()
-    {
-      foreach (Book book in _book)
-      {
-        Console.WriteLine($"Book Name: {book.Name} , Your Rating: {book.Rating}");
-        Console.WriteLine($"You Add this book at {book.Date}");
-        Console.WriteLine($"*****************************************************");
-      }
-    }
-
     public void SelectBook(string name)
     {
-      var book = _book.Find(b => b.Name.ToLower() == name.ToLower());
+      var book = _books.Find(b => b.Name.ToLower() == name.ToLower());
 
       Console.WriteLine($"Book Name: {book.Name} , Your Rating: {book.Rating}");
       Console.WriteLine($"You Add this book at {book.Date}");
@@ -67,7 +36,7 @@ namespace CsharpOwnProject
 
     public void ShowAllBooksWithThisRating(int rating)
     {
-      var books = _book.FindAll(b => b.Rating == rating);
+      var books = _books.FindAll(b => b.Rating == rating);
       Console.WriteLine($"The Books with {rating} star rating are {books.Count} :");
 
       foreach (var book in books)
@@ -76,6 +45,11 @@ namespace CsharpOwnProject
         Console.WriteLine($"You Add this book at {book.Date}");
         Console.WriteLine($"*****************************************************");
       }
+    }
+
+    public override string ToString()
+    {
+      return string.Join(Environment.NewLine, _books);
     }
   }
 

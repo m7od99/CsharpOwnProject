@@ -33,7 +33,10 @@ namespace CsharpOwnProject
       this.Rating = rating;
       Date = DateTime.Now;
     }
-
+    public override string ToString()
+    {
+      return $"Book Name: {Name} , Your Rating: {Rating}";
+    }
 
   }
 }
