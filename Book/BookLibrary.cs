@@ -52,9 +52,17 @@ namespace CsharpOwnProject
       return string.Join(Environment.NewLine, _books);
     }
 
-    public List<Book> OrderBooksBy(IOrderBy order)
+    public List<Book> OrderBooksBy(Order order)
     {
-      return order.Order(_books);
+      if (order == 0)
+      {
+        return OrderByName.Order(_books);
+      }
+      else
+      {
+        return OrderByRating.Order(_books);
+      }
+      
     }
   }
 

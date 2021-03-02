@@ -19,7 +19,7 @@ namespace CsharpOwnProject
 
       Console.WriteLine("**********************************************************");
 
-      var orders = lab.OrderBooksBy(new OrderByName());
+      var orders = lab.OrderBooksBy(Order.Name);
       foreach (var book in orders)
       {
         Console.WriteLine(book);
@@ -31,7 +31,7 @@ namespace CsharpOwnProject
 
       Console.WriteLine("**********************************************************");
 
-      var orderBy = lab.OrderBooksBy(new OrderByRating());
+      var orderBy = lab.OrderBooksBy(Order.Rating);
       foreach (var book in orderBy)
       {
         Console.WriteLine(book);
