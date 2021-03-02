@@ -51,6 +51,11 @@ namespace CsharpOwnProject
     {
       return string.Join(Environment.NewLine, _books);
     }
+
+    public List<Book> OrderBooksBy(IOrderBy order)
+    {
+      return order.Order(_books);
+    }
   }
 
 }

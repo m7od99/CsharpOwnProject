@@ -16,6 +16,26 @@ namespace CsharpOwnProject
       lab.SelectBook("Magic Emperor");
       lab.ShowAllBooksWithThisRating(5);
       Console.WriteLine(lab.ToString());
+
+      Console.WriteLine("**********************************************************");
+
+      var orders = lab.OrderBooksBy(new OrderByName());
+      foreach (var book in orders)
+      {
+        Console.WriteLine(book);
+      }
+
+      Console.WriteLine("**********************************************************");
+
+      Console.WriteLine(lab.ToString());
+
+      Console.WriteLine("**********************************************************");
+
+      var orderBy = lab.OrderBooksBy(new OrderByRating());
+      foreach (var book in orderBy)
+      {
+        Console.WriteLine(book);
+      }
     }
   }
 }
