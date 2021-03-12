@@ -54,7 +54,7 @@ namespace CsharpOwnProject
 
     public List<Book> ToList(Order order)
     {
-      if (order == 0)
+      if (order == Order.Name)
       {
         return OrderByName.Order(_books);
       }
